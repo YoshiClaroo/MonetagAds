@@ -3,18 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Telegram Ads Integration</title>
-  <!-- Primer script requerido -->
-  <script src="https://richinfo.co/richpartners/telegram/js/tg-ob.js"></script>
-  <!-- Segundo paso: Configuración de Telegram Ads -->
-  <script>
-    window.TelegramAdsController = new TelegramAdsController();
-    window.TelegramAdsController.initialize({
-      pubId: "952859",
-      appId: "1073",
-    });
-  </script>
+  <title>Anuncio al Presionar Caja</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000; /* Fondo negro */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .btn-image {
+      width: 150px; /* Tamaño más pequeño */
+      height: auto; /* Mantiene la proporción */
+      cursor: pointer;
+      animation: shake 2s ease-in-out 5s infinite; /* Duración de animación y pausa */
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: rotate(0); }
+      25% { transform: rotate(-10deg); }
+      50% { transform: rotate(10deg); }
+      75% { transform: rotate(-10deg); }
+    }
+  </style>
+  <!-- Script para habilitar los anuncios -->
+  <script src="//niphaumeenses.net/vignette.min.js" data-zone="8687971" data-sdk="show_8687971"></script>
 </head>
 <body>
+  <!-- Imagen centrada con efecto y funcionalidad de botón -->
+  <img 
+    src="https://i.postimg.cc/6QZcDFWV/f088d13b2e249236f2cbc7cd5b6e6f4a-caja-de-regalo-roja-icono-de-lazo-azul-1.png" 
+    alt="Botón con efecto de campana" 
+    class="btn-image" 
+    onclick="openAd()">
+  
+  <script>
+    // Función que se ejecuta al presionar la caja
+    function openAd() {
+      show_8687971()
+        .then(() => {
+          // Cerrar el anuncio automáticamente
+          // Asumiendo que esta función se invoca cuando el anuncio se cierra
+          console.log('El anuncio se ha cerrado automáticamente.');
+        })
+        .catch((error) => {
+          console.error('Error al mostrar el anuncio:', error);
+        });
+    }
+  </script>
 </body>
 </html>
