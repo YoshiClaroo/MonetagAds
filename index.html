@@ -57,7 +57,7 @@
     onclick="openTelegramAd()">
 
   <!-- Enlace para abrir el anuncio de AdQuake -->
-  <a href="#" class="ad-link" onclick="openAdQuake(event)">Abrir Anuncio de AdQuake</a>
+  <a href="#" class="ad-link" onclick="openAd()">Abrir Anuncio</a>
   
   <script>
     // Función que se ejecuta al presionar la caja para el anuncio de Telegram
@@ -66,13 +66,15 @@
       // Aquí puedes agregar el código necesario para mostrar el anuncio de Telegram
     }
 
-    // Función que se ejecuta al hacer clic en el enlace para el anuncio de AdQuake
-    function openAdQuake(event) {
-      event.preventDefault(); // Previene el comportamiento predeterminado del enlace
-      console.log('Abriendo anuncio de AdQuake...');
-      // Aquí se llama a la función de AdQuake para mostrar el anuncio
-      // Asegúrate de que la función adecuada de AdQuake se esté utilizando
-      showAd(); // Reemplaza con la función correcta para mostrar el anuncio si existe
+    // Función para abrir el anuncio de AdQuake
+    function openAd() {
+      show_8687971()
+        .then(() => {
+          console.log('El anuncio de AdQuake se ha mostrado.');
+        })
+        .catch((error) => {
+          console.error('Error al mostrar el anuncio de AdQuake:', error);
+        });
     }
   </script>
 </body>
