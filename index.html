@@ -45,7 +45,6 @@
       75% { transform: rotate(-10deg); }
     }
   </style>
-  <script src="//niphaumeenses.net/vignette.min.js" data-zone="8687971" data-sdk="show_8687971"></script>
   <script async src="https://script.adquake.com/js/adquake.js" adquake-key="pkEYobEtfUit6EUxuICmCA=="></script>
 </head>
 <body>
@@ -62,23 +61,16 @@
   <script>
     // Función que se ejecuta al presionar la caja para el anuncio de Telegram
     function openTelegramAd() {
-      show_8687971()
-        .then(() => {
-          console.log('Anuncio de Telegram mostrado con éxito.');
-        })
-        .catch((error) => {
-          console.error('Error al mostrar el anuncio de Telegram:', error);
-        });
+      console.log('Abriendo anuncio de Telegram...');
+      // Aquí puedes agregar el código necesario para mostrar el anuncio de Telegram
     }
 
     // Función que se ejecuta al presionar el botón para el anuncio de AdQuake
     function openAdQuake() {
+      // Aquí llamamos a la función de AdQuake para mostrar el anuncio
       console.log('Abriendo anuncio de AdQuake...');
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = "https://script.adquake.com/js/adquake.js";
-      script.setAttribute("adquake-key", "pkEYobEtfUit6EUxuICmCA==");
-      document.head.appendChild(script);
+      // Asumiendo que esta función se invoca cuando se necesita mostrar el anuncio
+      showAdQuake(); // Reemplaza con la función correcta para mostrar el anuncio si existe
     }
   </script>
 </body>
