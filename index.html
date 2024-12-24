@@ -16,10 +16,10 @@
     }
 
     .btn-image {
-      width: 150px; /* Tamaño más pequeño */
+      width: 150px; /* Tamaño de la imagen */
       height: auto; /* Mantiene la proporción */
       cursor: pointer;
-      animation: shake 2s ease-in-out 5s infinite; /* Duración de animación y pausa */
+      animation: shake 2s ease-in-out 5s infinite; /* Animación de sacudida */
     }
 
     @keyframes shake {
@@ -29,28 +29,12 @@
       75% { transform: rotate(-10deg); }
     }
   </style>
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXXX'); // Reemplaza 'GTM-XXXXXX' con tu ID de Tag Manager
-  </script>
-  <!-- Fin de Google Tag Manager -->
-  <!-- AdQuake Script -->
+  <!-- Script de AdQuake -->
   <script async src="https://script.adquake.com/js/adquake.js" adquake-key="pkEYobEtfUit6EUxuICmCA=="></script>
-  <!-- Fin de AdQuake Script -->
+  <!-- Script del anuncio existente -->
   <script src="//niphaumeenses.net/vignette.min.js" data-zone="8687971" data-sdk="show_8687971"></script>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" 
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- Fin de Google Tag Manager (noscript) -->
-
   <!-- Imagen centrada con efecto y funcionalidad de botón -->
   <img 
     src="https://i.postimg.cc/6QZcDFWV/f088d13b2e249236f2cbc7cd5b6e6f4a-caja-de-regalo-roja-icono-de-lazo-azul-1.png" 
@@ -61,14 +45,19 @@
   <script>
     // Función que se ejecuta al presionar la caja
     function openAd() {
+      console.log('Caja presionada. Mostrando anuncios...');
+      
+      // Mostrar el anuncio de Telegram
       show_8687971()
         .then(() => {
-          // Cerrar el anuncio automáticamente
-          console.log('El anuncio se ha cerrado automáticamente.');
+          console.log('Anuncio de Telegram mostrado con éxito.');
         })
         .catch((error) => {
-          console.error('Error al mostrar el anuncio:', error);
+          console.error('Error al mostrar el anuncio de Telegram:', error);
         });
+
+      // Aquí podrías agregar lógica adicional para AdQuake si es necesario
+      console.log('AdQuake script también está disponible para su uso.');
     }
   </script>
 </body>
