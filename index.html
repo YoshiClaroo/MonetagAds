@@ -10,16 +10,32 @@
       padding: 0;
       background-color: #000; /* Fondo negro */
       display: flex;
+      flex-direction: column; /* Cambiar la dirección del flex a columna */
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
 
     .btn-image {
-      width: 150px; /* Tamaño de la imagen */
+      width: 150px; /* Tamaño más pequeño */
       height: auto; /* Mantiene la proporción */
       cursor: pointer;
-      animation: shake 2s ease-in-out 5s infinite; /* Animación de sacudida */
+      animation: shake 2s ease-in-out 5s infinite; /* Duración de animación y pausa */
+      margin-bottom: 20px; /* Espacio entre la imagen y el botón */
+    }
+
+    .btn-ad {
+      padding: 10px 20px;
+      background-color: #f00; /* Color de fondo rojo */
+      color: #fff; /* Color de texto blanco */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-ad:hover {
+      background-color: #c00; /* Color de fondo más oscuro al pasar el mouse */
     }
 
     @keyframes shake {
@@ -29,10 +45,9 @@
       75% { transform: rotate(-10deg); }
     }
   </style>
-  <!-- Script de AdQuake -->
-  <script async src="https://script.adquake.com/js/adquake.js" adquake-key="pkEYobEtfUit6EUxuICmCA=="></script>
-  <!-- Script del anuncio existente -->
+  <!-- Script para habilitar los anuncios -->
   <script src="//niphaumeenses.net/vignette.min.js" data-zone="8687971" data-sdk="show_8687971"></script>
+  <script async src="https://script.adquake.com/js/adquake.js" adquake-key="pkEYobEtfUit6EUxuICmCA=="></script>
 </head>
 <body>
   <!-- Imagen centrada con efecto y funcionalidad de botón -->
@@ -41,12 +56,15 @@
     alt="Botón con efecto de campana" 
     class="btn-image" 
     onclick="openAd()">
+
+  <!-- Botón para abrir el anuncio -->
+  <button class="btn-ad" onclick="openAd()">Abrir Anuncio</button>
   
   <script>
-    // Función que se ejecuta al presionar la caja
+    // Función que se ejecuta al presionar la caja o el botón
     function openAd() {
-      console.log('Caja presionada. Mostrando anuncios...');
-      
+      console.log('Abriendo anuncios...');
+
       // Mostrar el anuncio de Telegram
       show_8687971()
         .then(() => {
@@ -56,8 +74,13 @@
           console.error('Error al mostrar el anuncio de Telegram:', error);
         });
 
-      // Aquí podrías agregar lógica adicional para AdQuake si es necesario
-      console.log('AdQuake script también está disponible para su uso.');
+      // Mostrar anuncio de AdQuake si es necesario
+      if (typeof adquake !== 'undefined') {
+        // Aquí puedes personalizar cómo se muestra el anuncio de AdQuake
+        console.log('Anuncio de AdQuake también se puede mostrar aquí.');
+      } else {
+        console.log('AdQuake no está disponible.');
+      }
     }
   </script>
 </body>
