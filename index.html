@@ -4,20 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anuncio al Presionar Caja</title>
-
-  <!-- Script para Telegram Web App -->
-  <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
-
-  <!-- Script de Telegram Ads -->
-  <script src="https://richinfo.co/richpartners/telegram/js/tg-ob.js"></script>
-  <script>
-    window.TelegramAdsController = new TelegramAdsController();
-    window.TelegramAdsController.initialize({
-      pubId: "952859",
-      appId: "1073",
-    });
-  </script>
-
   <style>
     body {
       margin: 0;
@@ -43,7 +29,8 @@
       75% { transform: rotate(-10deg); }
     }
   </style>
-  
+  <!-- Nuevo script agregado -->
+  <script src="https://richinfo.co/richpartners/in-page/js/richads-ob.js?pubid=952859&siteid=355165" async></script>
   <!-- Script para habilitar los anuncios -->
   <script src="//niphaumeense.net/vignette.min.js" data-zone="8687971" data-sdk="show_8687971"></script>
 </head>
@@ -61,6 +48,7 @@
       show_8687971()
         .then(() => {
           // Cerrar el anuncio automáticamente
+          // Asumiendo que esta función se invoca cuando el anuncio se cierra
           console.log('El anuncio se ha cerrado automáticamente.');
         })
         .catch((error) => {
