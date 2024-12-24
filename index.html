@@ -10,17 +10,17 @@
       padding: 0;
       background-color: #000; /* Fondo negro */
       display: flex;
-      flex-direction: column; /* Cambiar la dirección del flex a columna */
+      flex-direction: column; /* Cambia la dirección del flex a columna */
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
 
     .btn-image {
-      width: 150px; /* Tamaño más pequeño */
+      width: 150px; /* Tamaño de la imagen */
       height: auto; /* Mantiene la proporción */
       cursor: pointer;
-      animation: shake 2s ease-in-out 5s infinite; /* Duración de animación y pausa */
+      animation: shake 2s ease-in-out 5s infinite; /* Efecto de sacudida */
       margin-bottom: 20px; /* Espacio entre la imagen y el botón */
     }
 
@@ -35,7 +35,7 @@
     }
 
     .btn-ad:hover {
-      background-color: #c00; /* Color de fondo más oscuro al pasar el mouse */
+      background-color: #c00; /* Color más oscuro al pasar el mouse */
     }
 
     @keyframes shake {
@@ -45,27 +45,23 @@
       75% { transform: rotate(-10deg); }
     }
   </style>
-  <!-- Script para habilitar los anuncios -->
   <script src="//niphaumeenses.net/vignette.min.js" data-zone="8687971" data-sdk="show_8687971"></script>
   <script async src="https://script.adquake.com/js/adquake.js" adquake-key="pkEYobEtfUit6EUxuICmCA=="></script>
 </head>
 <body>
-  <!-- Imagen centrada con efecto y funcionalidad de botón -->
+  <!-- Imagen centrada para el anuncio de Telegram -->
   <img 
     src="https://i.postimg.cc/6QZcDFWV/f088d13b2e249236f2cbc7cd5b6e6f4a-caja-de-regalo-roja-icono-de-lazo-azul-1.png" 
     alt="Botón con efecto de campana" 
     class="btn-image" 
-    onclick="openAd()">
+    onclick="openTelegramAd()">
 
-  <!-- Botón para abrir el anuncio -->
-  <button class="btn-ad" onclick="openAd()">Abrir Anuncio</button>
+  <!-- Botón para abrir el anuncio de AdQuake -->
+  <button class="btn-ad" onclick="openAdQuake()">Abrir Anuncio de AdQuake</button>
   
   <script>
-    // Función que se ejecuta al presionar la caja o el botón
-    function openAd() {
-      console.log('Abriendo anuncios...');
-
-      // Mostrar el anuncio de Telegram
+    // Función que se ejecuta al presionar la caja para el anuncio de Telegram
+    function openTelegramAd() {
       show_8687971()
         .then(() => {
           console.log('Anuncio de Telegram mostrado con éxito.');
@@ -73,14 +69,16 @@
         .catch((error) => {
           console.error('Error al mostrar el anuncio de Telegram:', error);
         });
+    }
 
-      // Mostrar anuncio de AdQuake si es necesario
-      if (typeof adquake !== 'undefined') {
-        // Aquí puedes personalizar cómo se muestra el anuncio de AdQuake
-        console.log('Anuncio de AdQuake también se puede mostrar aquí.');
-      } else {
-        console.log('AdQuake no está disponible.');
-      }
+    // Función que se ejecuta al presionar el botón para el anuncio de AdQuake
+    function openAdQuake() {
+      console.log('Abriendo anuncio de AdQuake...');
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = "https://script.adquake.com/js/adquake.js";
+      script.setAttribute("adquake-key", "pkEYobEtfUit6EUxuICmCA==");
+      document.head.appendChild(script);
     }
   </script>
 </body>
