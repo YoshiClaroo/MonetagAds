@@ -10,31 +10,16 @@
       padding: 0;
       background-color: #000; /* Fondo negro */
       display: flex;
-      flex-direction: column; /* Cambia la dirección del flex a columna */
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
 
     .btn-image {
-      width: 150px; /* Tamaño de la imagen */
+      width: 150px; /* Tamaño más pequeño */
       height: auto; /* Mantiene la proporción */
       cursor: pointer;
-      animation: shake 2s ease-in-out 5s infinite; /* Efecto de sacudida */
-      margin-bottom: 20px; /* Espacio entre la imagen y el enlace */
-    }
-
-    .ad-link {
-      padding: 10px 20px;
-      background-color: #f00; /* Color de fondo rojo */
-      color: #fff; /* Color de texto blanco */
-      text-decoration: none; /* Sin subrayado */
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
-    .ad-link:hover {
-      background-color: #c00; /* Color más oscuro al pasar el mouse */
+      animation: shake 2s ease-in-out 5s infinite; /* Duración de animación y pausa */
     }
 
     @keyframes shake {
@@ -44,36 +29,42 @@
       75% { transform: rotate(-10deg); }
     }
   </style>
-
-  <!-- Script de AdQuake para la monetización -->
-  <script async src="https://script.adquake.com/js/adquake.js" adquake-key="pkEYobEtfUit6EUxuICmCA=="></script>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXX'); // Reemplaza 'GTM-XXXXXX' con tu ID de Tag Manager
+  </script>
+  <!-- Fin de Google Tag Manager -->
+  <script src="//niphaumeenses.net/vignette.min.js" data-zone="8687971" data-sdk="show_8687971"></script>
 </head>
 <body>
-  <!-- Imagen centrada para el anuncio de Telegram -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" 
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- Fin de Google Tag Manager (noscript) -->
+
+  <!-- Imagen centrada con efecto y funcionalidad de botón -->
   <img 
     src="https://i.postimg.cc/6QZcDFWV/f088d13b2e249236f2cbc7cd5b6e6f4a-caja-de-regalo-roja-icono-de-lazo-azul-1.png" 
     alt="Botón con efecto de campana" 
     class="btn-image" 
-    onclick="openTelegramAd()">
-
-  <!-- Enlace para abrir el anuncio de AdQuake -->
-  <a href="#" class="ad-link" onclick="openAd()">Abrir Anuncio</a>
+    onclick="openAd()">
   
   <script>
-    // Función que se ejecuta al presionar la caja para el anuncio de Telegram
-    function openTelegramAd() {
-      console.log('Abriendo anuncio de Telegram...');
-      // Aquí puedes agregar el código necesario para mostrar el anuncio de Telegram
-    }
-
-    // Función para abrir el anuncio de AdQuake
+    // Función que se ejecuta al presionar la caja
     function openAd() {
       show_8687971()
         .then(() => {
-          console.log('El anuncio de AdQuake se ha mostrado.');
+          // Cerrar el anuncio automáticamente
+          console.log('El anuncio se ha cerrado automáticamente.');
         })
         .catch((error) => {
-          console.error('Error al mostrar el anuncio de AdQuake:', error);
+          console.error('Error al mostrar el anuncio:', error);
         });
     }
   </script>
