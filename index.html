@@ -21,20 +21,19 @@
       height: auto; /* Mantiene la proporción */
       cursor: pointer;
       animation: shake 2s ease-in-out 5s infinite; /* Efecto de sacudida */
-      margin-bottom: 20px; /* Espacio entre la imagen y el botón */
+      margin-bottom: 20px; /* Espacio entre la imagen y el enlace */
     }
 
-    .btn-ad {
+    .ad-link {
       padding: 10px 20px;
       background-color: #f00; /* Color de fondo rojo */
       color: #fff; /* Color de texto blanco */
-      border: none;
+      text-decoration: none; /* Sin subrayado */
       border-radius: 5px;
-      cursor: pointer;
       font-size: 16px;
     }
 
-    .btn-ad:hover {
+    .ad-link:hover {
       background-color: #c00; /* Color más oscuro al pasar el mouse */
     }
 
@@ -57,8 +56,8 @@
     class="btn-image" 
     onclick="openTelegramAd()">
 
-  <!-- Botón para abrir el anuncio de AdQuake -->
-  <button class="btn-ad" onclick="openAdQuake()">Abrir Anuncio de AdQuake</button>
+  <!-- Enlace para abrir el anuncio de AdQuake -->
+  <a href="#" class="ad-link" onclick="openAdQuake(event)">Abrir Anuncio de AdQuake</a>
   
   <script>
     // Función que se ejecuta al presionar la caja para el anuncio de Telegram
@@ -67,11 +66,11 @@
       // Aquí puedes agregar el código necesario para mostrar el anuncio de Telegram
     }
 
-    // Función que se ejecuta al presionar el botón para el anuncio de AdQuake
-    function openAdQuake() {
-      // Aquí se llama a la función de AdQuake para mostrar el anuncio
+    // Función que se ejecuta al hacer clic en el enlace para el anuncio de AdQuake
+    function openAdQuake(event) {
+      event.preventDefault(); // Previene el comportamiento predeterminado del enlace
       console.log('Abriendo anuncio de AdQuake...');
-      // Esta función debería ser invocada para mostrar el anuncio
+      // Aquí se llama a la función de AdQuake para mostrar el anuncio
       // Asegúrate de que la función adecuada de AdQuake se esté utilizando
       showAd(); // Reemplaza con la función correcta para mostrar el anuncio si existe
     }
