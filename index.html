@@ -8,7 +8,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #000; /* Fondo negro */
+      background-color: #000;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -16,10 +16,10 @@
     }
 
     .btn-image {
-      width: 150px; /* Tamaño más pequeño */
-      height: auto; /* Mantiene la proporción */
+      width: 150px;
+      height: auto;
       cursor: pointer;
-      animation: shake 2s ease-in-out 5s infinite; /* Duración de animación y pausa */
+      animation: shake 2s ease-in-out 5s infinite;
     }
 
     @keyframes shake {
@@ -29,31 +29,35 @@
       75% { transform: rotate(-10deg); }
     }
   </style>
-  <!-- Script de RichAds agregado -->
-  <script src="https://richinfo.co/richpartners/in-page/js/richads-ob.js?pubid=952859&siteid=355165" async></script>
-  <!-- Script para habilitar los anuncios -->
-  <script src="//niphaumeense.net/vignette.min.js" data-zone="8687971" data-sdk="show_8687971"></script>
+  <!-- Script de anuncios -->
+  <script src="//niphaumeenses.net/vignette.min.js" data-zone="8704892" data-sdk="show_8704892"></script>
 </head>
 <body>
-  <!-- Imagen centrada con efecto y funcionalidad de botón -->
+  <!-- Imagen interactiva para mostrar el anuncio -->
   <img 
     src="https://i.postimg.cc/6QZcDFWV/f088d13b2e249236f2cbc7cd5b6e6f4a-caja-de-regalo-roja-icono-de-lazo-azul-1.png" 
-    alt="Botón con efecto de campana" 
+    alt="Botón de anuncio" 
     class="btn-image" 
-    onclick="openAd()">
+    onclick="showAd()">
   
   <script>
-    // Función que se ejecuta al presionar la caja
-    function openAd() {
-      show_8687971()
+    // Función para mostrar el anuncio al hacer clic en la imagen
+    function showAd() {
+      show_8704892()
         .then(() => {
-          // Cerrar el anuncio automáticamente
-          // Asumiendo que esta función se invoca cuando el anuncio se cierra
-          console.log('El anuncio se ha cerrado automáticamente.');
+          // Recompensa al usuario después de ver el anuncio
+          alert('¡Has visto el anuncio y obtenido tu recompensa!');
+          rewardUser(); // Llama a la función de recompensa
         })
         .catch((error) => {
           console.error('Error al mostrar el anuncio:', error);
         });
+    }
+
+    // Función para recompensar al usuario
+    function rewardUser() {
+      console.log('Recompensando al usuario...');
+      // Aquí puedes implementar lógica como sumar puntos, desbloquear contenido, etc.
     }
   </script>
 </body>
