@@ -117,7 +117,9 @@
     </footer>
 
     <script>
-        let points = 0;
+        // Recuperar el saldo guardado en LocalStorage al cargar la página
+        let points = parseFloat(localStorage.getItem('userPoints')) || 0;
+        document.getElementById('points').textContent = `$${points.toFixed(5)}`;
 
         // Función para mostrar el anuncio y recompensar al usuario
         function showAd(action) {
@@ -126,12 +128,19 @@
                 if (action === 'Ganar Dinero') {
                     points += 0.00001; // Aumenta el saldo en $00.00001
                     document.getElementById('points').textContent = `$${points.toFixed(5)}`;
+                    // Guardar el saldo en LocalStorage
+                    localStorage.setItem('userPoints', points);
                 }
                 alert(`¡Has visto un anuncio! Acción: ${action}`);
             }).catch((error) => {
                 console.error('Error al mostrar el anuncio:', error);
                 alert('Hubo un error al mostrar el anuncio. Inténtalo de nuevo.');
             });
+        }
+
+        // Verificar si el navegador soporta LocalStorage
+        if (typeof(Storage) === "undefined") {
+            alert("Tu navegador no soporta LocalStorage. El saldo no se guardará.");
         }
     </script>
 </body>
