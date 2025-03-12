@@ -107,7 +107,7 @@
         <div class="card">
             <h2>Ganar Dinero</h2>
             <p>Presiona el botón para ver un anuncio y ganar dinero.</p>
-            <button onclick="showAd('Ganar Dinero')">Ganar Dinero</button>
+            <button onclick="showAd()">Ganar Dinero</button>
         </div>
     </div>
 
@@ -121,16 +121,15 @@
         document.getElementById('points').textContent = `$${points.toFixed(5)}`;
 
         // Función para mostrar el anuncio y recompensar al usuario
-        function showAd(action) {
+        function showAd() {
             show_8872917().then(() => {
-                // Recompensa al usuario después de ver el anuncio
-                if (action === 'Ganar Dinero') {
-                    points += 0.00001; // Aumenta el saldo en $00.00001
-                    document.getElementById('points').textContent = `$${points.toFixed(5)}`;
-                    // Guardar el saldo en LocalStorage
-                    localStorage.setItem('userPoints', points);
-                }
-                alert(`¡Has visto un anuncio! Acción: ${action}`);
+                // Aumentar el saldo solo si el usuario ve el anuncio completo
+                points += 0.00001; // Aumenta el saldo en $00.00001
+                document.getElementById('points').textContent = `$${points.toFixed(5)}`;
+                // Guardar el saldo en LocalStorage
+                localStorage.setItem('userPoints', points);
+
+                alert('¡Has visto un anuncio y ganado dinero!');
             }).catch((error) => {
                 console.error('Error al mostrar el anuncio:', error);
                 alert('Hubo un error al mostrar el anuncio. Inténtalo de nuevo.');
